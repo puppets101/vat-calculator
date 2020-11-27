@@ -11,7 +11,9 @@ function addEventListeners() {
   const quarter = document.getElementById("quarter");
   const twelve = document.getElementById("twelve");
   const six = document.getElementById("six");
-  // const zero = document.getElementById('zero');
+
+  quarter.addEventListener("click", applyVat25);
+  twelve.addEventListener("click", applyVat12);
 
   // Get input from DOM
   const inclusive = document.getElementById("inclusive");
@@ -28,13 +30,33 @@ function updateBasedOnIncVat() {
   const totalInput = document.getElementById("total");
 
   const inclusiveVat = Number(inclusiveInput.value);
-  console.log(inclusiveVat);
 
   const exclusiveVat = inclusiveVat / selectedVat;
   const totalVat = inclusiveVat - exclusiveVat;
 
   exclusiveInput.value = String(exclusiveVat);
   totalInput.value = String(totalVat);
-  console.log(exclusiveVat);
-  console.log(totalVat);
+}
+
+function updateBasedOnExcVat() {
+  const inclusiveInput = document.getElementById("inclusive");
+  const exclusiveInput = document.getElementById("exclusive");
+  const totalInput = document.getElementById("total");
+
+  const exclusiveVat = Number(exclusiveInput.value);
+  const inclusiveVat = exclusiveVat * selectedVat;
+  const totalVat = inclusiveVat - exclusiveVat;
+
+  inclusiveInput.value = String(inclusiveVat);
+  totalInput.value = String(totalVat);
+}
+
+function applyVat25() {
+  selectedVat = 1.25;
+  updateBasedOnIncVat();
+}
+
+function applyVat12() {
+  selectedVat = 1.12;
+  updateBasedOnExcVat();
 }
