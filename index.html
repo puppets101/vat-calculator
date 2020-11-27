@@ -9,25 +9,24 @@
 </head>
 <body>
   <div class="container">
-    <h1>VAT</h1>
+    <label for="buttons">VAT</label>
     <div class="btn-div">
       <button id="quarter">25%</button>
       <button id="twelve">12%</button>
       <button id="six">6%</button>
-      <button id="zero">0%</button>
+      <!-- <button id="zero">0%</button> -->
     </div>
-    <form>
-
-      <h4>Inclusive VAT ($)</h4>
-      <input id="inclusive" type="number" placeholder="$400">
-
-
-      <h4>Exclusive VAT ($)</h4>
-      <input id="exclusive" type="number" placeholder="$400">
+    <form id="form">
+      <label for="inc">Inclusive VAT ($)</label>
+      <input id="inclusive" name="inclusive" type="number" placeholder="$400">
 
 
-      <h4>VAT Total ($)</h4>
-      <input id="total" type="number" placeholder="$400">
+      <label for="exc">Exclusive VAT ($)</label>
+      <input id="exclusive" name="exclusive" type="number" placeholder="$400">
+
+
+      <label for="tot">VAT Total ($)</label>
+      <input disabled id="total" name="total" type="number" placeholder="$400">
     </div>
   </form>
   </div>
